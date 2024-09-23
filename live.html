@@ -17,22 +17,27 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-bottom: 20px; /* Space between buttons and modal */
         }
 
+        /* Styling to match game boxes */
         .button {
-            background-color: #007BFF;
+            background-color: #424242; /* Adjust this color to match the game boxes */
             color: white;
             padding: 15px 30px;
-            border: none;
+            border: 1px solid #888; /* Adjust this to match your border */
             border-radius: 5px;
             font-size: 18px;
             cursor: pointer;
             margin: 10px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 200px; /* Set width to match the game boxes */
+            text-align: center; /* Center align text */
         }
 
         .button:hover {
-            background-color: #0056b3;
+            background-color: #616161; /* Lighter shade on hover, adjust as necessary */
+            transform: scale(1.05); /* Slight scaling effect on hover */
         }
 
         .modal {
