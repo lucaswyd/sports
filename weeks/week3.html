@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Game Schedule</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+    <title>NFL Game Schedule for Week 3</title>
+    <link rel="stylesheet" href="styles.css"> 
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,22 +50,20 @@
     <div class="container" id="scheduleContainer">
         <!-- Placeholder for the game boxes -->
     </div>
-    <script src="script.js"></script> <!-- Link to the JavaScript file -->
+    <script src="script.js"></script> 
     <script>
-        // Function to load schedule based on the week
         function loadSchedule(weekNumber) {
             const scheduleContainer = document.getElementById("scheduleContainer");
             const currentWeekDisplay = document.getElementById("currentWeek");
             currentWeekDisplay.textContent = weekNumber;
 
-            const currentWeekGames = nflSchedule[weekNumber]; // Get games for current week
-            scheduleContainer.innerHTML = ""; // Clear the existing content
+            const currentWeekGames = nflSchedule[weekNumber]; 
+            scheduleContainer.innerHTML = "";
 
             if (currentWeekGames) {
                 currentWeekGames.forEach(game => {
                     const box = document.createElement("div");
                     box.className = "game-box";
-                    box.onclick = () => { /* Action on click here, e.g., alert(`Clicked on ${game.awayTeam} vs ${game.homeTeam}`) */ };
 
                     // Populate the box with team names, time, and channel
                     box.innerHTML = `
@@ -77,16 +75,15 @@
                         <div class="time-channel">${game.tv ? 'Channel: ' + game.tv : ''}</div>
                     `;
 
-                    scheduleContainer.appendChild(box); // Add box to the container
+                    scheduleContainer.appendChild(box); 
                 });
             } else {
                 scheduleContainer.innerHTML = "<p>No games scheduled for this week.</p>";
             }
         }
 
-        // Example usage: Load schedule for week 1 by default
-        // You could replace `1` with `getCurrentWeek()` or another week number if desired
-        loadSchedule(1);
+        // Load the schedule for Week 3
+        loadSchedule(3);
     </script>
 </body>
 </html>
