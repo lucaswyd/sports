@@ -262,16 +262,16 @@
                         <div class="day">${game.day ? game.day : 'Day N/A'}</div>
                         <div class="team-names">
                             <img class="team-logo" src="${getLogoUrl(game.awayTeam)}" alt="${teamNames[game.awayTeam]} Logo">
-                            <div>${teamNames[game.awayTeam]}</div>
+                            <div>${game.awayTeam}</div>
                         </div>
                         <div class="team-names">
                             <img class="team-logo" src="${getLogoUrl(game.homeTeam)}" alt="${teamNames[game.homeTeam]} Logo">
-                            <div>${teamNames[game.homeTeam]}</div>
+                            <div>${game.homeTeam}</div>
                         </div>
                         <div class="time-channel">${game.time ? 'Time: ' + game.time : 'Time: TBD'}</div>
                         <div class="time-channel">${game.tv ? 'Channel: ' + game.tv : 'Channel: TBD'}</div>
                     `;
-
+                    
                     // Add click event to open modal with correct iframe URL
                     box.onclick = function() {
                         const iframeUrl = getIframeUrl(game.awayTeam, game.homeTeam);
