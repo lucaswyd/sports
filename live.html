@@ -49,15 +49,17 @@
             top: 0;
             width: 100%; /* Full width */
             height: 100%; /* Full height */
-        /*  overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
             background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
             animation: slide-in 0.5s forwards;
         }
-    
+
         .modal-content {
             background-color: #212121;
-            margin: 0% auto; /* Center the modal */
+            position: absolute; /* Change to absolute positioning for centering */
+            margin: 0% auto;
+            top: 50%; /* Position 50% from the top */
+            left: 50%; /* Position 50% from the left */
+            transform: translate(-50%, -50%); /* Center the modal */
             padding: 20px;
             border: 1px solid #888;
             width: 80%; /* Wider modal */
@@ -65,14 +67,6 @@
             /*max-height: 80vh; /* Limit height of modal */
             overflow: hidden; /* Prevent overflow in the modal itself */
             animation: slide-in 0.5s forwards;
-        }
-        
-        /* Optional: Add media queries for smaller screens */
-        @media (max-width: 600px) {
-            .modal-content {
-                width: 90%; /* Adjust width for smaller screens */
-                top: 40%; /* Adjust top for smaller screens */
-            }
         }
 
         #gameIframe {
@@ -109,7 +103,7 @@
     </style>
 </head>
 <body>
-    <h1>24/7</h1>
+    <h1>NFL Live Streams for Week <span id="currentWeek"></span></h1>
     <div class="container" id="scheduleContainer">
         <div class="game-box" id="redzoneBox">
             <div class="team-names">NFL RedZone</div>
