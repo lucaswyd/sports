@@ -59,7 +59,7 @@
 
             console.log(`Loading schedule for Week ${weekNumber}`); // Debugging log
             const currentWeekGames = nflSchedule[weekNumber]; 
-            console.log(`Current Week Games: `, currentWeekGames); // Debugging log to see the schedule
+            console.log(`Current Week Games: `, currentWeekGames); 
 
             scheduleContainer.innerHTML = ""; // Clear previous content
 
@@ -74,15 +74,15 @@
                             <div>${game.awayTeam}</div>
                             <div>${game.homeTeam}</div>
                         </div>
-                        <div class="time-channel">${game.time ? 'Time: ' + game.time : ''}</div>
-                        <div class="time-channel">${game.tv ? 'Channel: ' + game.tv : ''}</div>
+                        <div class="time-channel">${game.time ? 'Time: ' + game.time : 'Time: TBD'}</div>
+                        <div class="time-channel">${game.tv ? 'Channel: ' + game.tv : 'Channel: TBD'}</div>
                     `;
 
                     scheduleContainer.appendChild(box); 
                 });
             } else {
                 scheduleContainer.innerHTML = "<p>No games scheduled for this week.</p>";
-                console.log(`No games scheduled for Week ${weekNumber}`); // Debugging log
+                console.log(`No games scheduled for Week ${weekNumber}`); 
             }
         }
 
