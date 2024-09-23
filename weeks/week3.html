@@ -122,7 +122,42 @@
         </div>
     </div>
 
-    <script src="../script.js"></script> 
+    <script src="../script.js"></script>
+
+    
+    <script>
+        // popup blocker
+        
+        // Global event listener to intercept clicks
+document.addEventListener('click', function(event) {
+    const target = event.target;
+
+    // Check if the target is an anchor and its href matches the blocked URL
+    if (target.tagName === 'A' && target.href.startsWith('https://linsaicki.net/')) {
+        event.preventDefault(); // Prevent navigation
+        alert("popup blocked");
+        console.log('Navigation to ' + target.href + ' is blocked.');
+    }
+});
+
+// MutationObserver to monitor and handle dynamically added nodes
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        mutation.addedNodes.forEach(function(node) {
+            // If the node is a link, check its href
+            if (node.tagName === 'A' && node.href.startsWith('https://linsaicki.net/')) {
+                node.remove(); // Remove the blocked link
+                alert("popup blocked");
+                console.log('Blocked a dynamically created link to ' + node.href);
+            }
+        });
+    });
+});
+
+// Start observing the document for new nodes being added
+observer.observe(document.body, { childList: true, subtree: true });
+    </script>
+
     <script>
         // Mapping of team abbreviations to full names
         const teamNames = {
