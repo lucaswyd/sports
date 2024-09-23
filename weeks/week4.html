@@ -5,132 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFL Week 4 Games</title>
     <link rel="stylesheet" href="../styles.css"> 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #212121;
-        margin: 0;
-        padding: 20px;
-    }
-
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .game-box {
-        background-color: #0d0d0d;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        margin: 10px;
-        padding: 20px;
-        width: 200px;
-        text-align: center;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .game-box:hover {
-        background-color: #818181;
-    }
-
-    .team-names {
-        color: #f2f2f2;
-        font-size: 1.2em;
-        margin: 10px 0;
-    }
-
-    .time-channel {
-        color: #f2f2f2;
-        font-size: 1em;
-    }
-    
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1000; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-/*        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        animation: slide-in 0.5s forwards;
-    }
-
-    .modal-content {
-        background-color: #212121;
-        margin: 0% auto; /* Center the modal */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* Wider modal */
-        max-width: 900px; /* Maximum width */
-        /*max-height: 80vh; /* Limit height of modal */
-        overflow: hidden; /* Prevent overflow in the modal itself */
-        animation: slide-in 0.5s forwards;
-    }
-    
-    /* Optional: Add media queries for smaller screens */
-    @media (max-width: 600px) {
-        .modal-content {
-            width: 90%; /* Adjust width for smaller screens */
-            top: 40%; /* Adjust top for smaller screens */
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #212121;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align all children including h1 */
         }
-    }
-    #gameIframe {
-        width: 100%; /* Full width of modal */
-        height: 600px; /* Increase height based on player size */
-        border: none; /* Optional: remove iframe border */
-    }
 
-    .media-control-panel {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 10px;
-    }
-
-    .media-control-button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        background-color: #007BFF;
-        color: white;
-        font-size: 16px;
-    }
-
-    .media-control-button:hover {
-        background-color: #0056b3;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* Animation */
-    @keyframes slide-in {
-        from {
-            top: -300px;
-            opacity: 0;
+        h1 {
+            color: #f2f2f2; /* Title color */
+            text-align: center; /* Center the text */
+            margin-bottom: 20px; /* Space between title and game boxes */
+            width: 100%; /* Ensures it takes full width */
         }
-        to {
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game-box {
+            background-color: #0d0d0d;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .game-box:hover {
+            background-color: #818181;
+        }
+
+        .team-names {
+            color: #f2f2f2;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .time-channel {
+            color: #f2f2f2;
+            font-size: 1em;
+        }
+        
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
             top: 0;
-            opacity: 1;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            animation: slide-in 0.5s forwards;
         }
-    }
-</style>
+
+        .modal-content {
+            background-color: #212121;
+            margin: 0% auto; /* Center the modal */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Wider modal */
+            max-width: 900px; /* Maximum width */
+            overflow: hidden; /* Prevent overflow in the modal itself */
+            animation: slide-in 0.5s forwards;
+        }
+        
+        #gameIframe {
+            width: 100%; /* Full width of modal */
+            height: 600px; /* Increase height based on player size */
+            border: none; /* Optional: remove iframe border */
+        }
+
+        .media-control-panel {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .media-control-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+        }
+
+        .media-control-button:hover {
+            background-color: #0056b3;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Animation */
+        @keyframes slide-in {
+            from {
+                top: -300px;
+                opacity: 0;
+            }
+            to {
+                top: 0;
+                opacity: 1;
+            }
+        }
+        
+        /* Optional: Add media queries for smaller screens */
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 90%; /* Adjust width for smaller screens */
+                top: 40%; /* Adjust top for smaller screens */
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>NFL Week <span id="currentWeek"> Games</span></h1>
@@ -249,7 +257,6 @@
 
                     // Add click event to open modal with correct iframe URL
                     box.onclick = function() {
-                     // alert('unmute button opens a popup in a new tab');
                         const iframeUrl = getIframeUrl(game.awayTeam, game.homeTeam);
                         document.getElementById("gameIframe").src = iframeUrl;
                         document.getElementById("myModal").style.display = "block";
