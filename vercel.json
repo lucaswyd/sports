@@ -1,0 +1,5 @@
+{
+    "rewrites": [
+        { "source": "/weeksq/week4", "destination": "/weeks/week4.html" }
+    ]
+}
