@@ -243,7 +243,7 @@
 
                     // Add click event to open modal with correct iframe URL
                     box.onclick = function() {
-                        alert('popup in new tab will open on player click');
+                        alert('unmute button opens a popup in a new tab');
                         const iframeUrl = getIframeUrl(game.awayTeam, game.homeTeam);
                         document.getElementById("gameIframe").src = iframeUrl;
                         document.getElementById("myModal").style.display = "block";
