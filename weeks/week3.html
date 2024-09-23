@@ -60,12 +60,18 @@
         }
 
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* 15% from the top and centered */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 300px; /* Could be more or less, depending on screen size */
-            animation: slide-in 0.5s forwards;
+        background-color: #fefefe;
+        margin: 10% auto; /* Center the modal on the screen */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Adjust this value to make the modal wider */
+        max-width: 900px; /* Optional: maximum width to limit the size on larger screens */
+        animation: slide-in 0.5s forwards;
+        }
+
+        #iframe {
+            width: 100%; /* Take full width of modal */
+            height: 700px; /* Increase height as needed */
         }
 
         .close {
