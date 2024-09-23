@@ -1,1 +1,176 @@
-redzone n network type shi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Live Streams</title>
+    <link rel="stylesheet" href="../styles.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #212121;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game-box {
+            background-color: #0d0d0d;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .game-box:hover {
+            background-color: #818181;
+        }
+
+        .team-names {
+            color: #f2f2f2;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            animation: slide-in 0.5s forwards;
+        }
+
+        .modal-content {
+            background-color: #212121;
+            position: absolute; /* Change to absolute positioning for centering */
+            top: 50%; /* Position 50% from the top */
+            left: 50%; /* Position 50% from the left */
+            transform: translate(-50%, -50%); /* Center the modal */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Wider modal */
+            max-width: 900px; /* Maximum width */
+            max-height: 80vh; /* Limit height of modal */
+            overflow: hidden; /* Prevent overflow in the modal itself */
+            animation: slide-in 0.5s forwards;
+        }
+
+        #gameIframe {
+            width: 100%; /* Full width of modal */
+            height: 600px; /* Increase height based on player size */
+            border: none; /* Optional: remove iframe border */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Animation */
+        @keyframes slide-in {
+            from {
+                top: -300px;
+                opacity: 0;
+            }
+            to {
+                top: 0;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>NFL Live Streams for Week <span id="currentWeek"></span></h1>
+    <div class="container" id="scheduleContainer">
+        <div class="game-box" id="redzoneBox">
+            <div class="team-names">NFL RedZone</div>
+            <div class="time-channel">Watch live NFL RedZone</div>
+        </div>
+        <div class="game-box" id="nflNetworkBox">
+            <div class="team-names">NFL Network</div>
+            <div class="time-channel">Watch live NFL Network</div>
+        </div>
+    </div>
+
+    <!-- Modal structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <iframe id="gameIframe" width="100%" height="500px" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Global variable for current week
+        const currentWeekNumber = new Date().getWeek(); // Assuming you implement a way to get the week number
+
+        document.getElementById("currentWeek").textContent = currentWeekNumber;
+
+        // Function to get the URL for NFL RedZone
+        function getRedZoneUrl() {
+            return `https://embedme.top/embed/nfl-redzone-week-${currentWeekNumber}/1/`;
+        }
+
+        // Function to get the URL for NFL Network
+        function getNflNetworkUrl() {
+            return `https://embedme.top/embed/alpha/nfl-network/1/`;
+        }
+
+        // Set click event for RedZone box
+        document.getElementById("redzoneBox").onclick = function() {
+            document.getElementById("gameIframe").src = getRedZoneUrl();
+            document.getElementById("myModal").style.display = "block";
+        };
+
+        // Set click event for NFL Network box
+        document.getElementById("nflNetworkBox").onclick = function() {
+            document.getElementById("gameIframe").src = getNflNetworkUrl();
+            document.getElementById("myModal").style.display = "block";
+        };
+
+        // Close modal functionality
+        document.getElementById("closeModal").onclick = function() {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById("gameIframe").src = ""; // Clear the iframe URL
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.getElementById("gameIframe").src = ""; // Clear the iframe URL
+            }
+        }
+
+        // Function to get current week number (you can adjust this according to your logic)
+        Date.prototype.getWeek = function() {
+            const oneJan = new Date(this.getFullYear(), 0, 1);
+            return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7);
+        };
+    </script>
+</body>
+</html>
