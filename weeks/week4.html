@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Game Schedule for Week 4</title>
+    <link rel="stylesheet" href="../styles.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game-box {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .game-box:hover {
+            background-color: #e0e0e0;
+        }
+
+        .team-names {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .time-channel {
+            color: #777;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>NFL Schedule for Week <span id="currentWeek"></span></h1>
+    <div class="container" id="scheduleContainer">
+        <!-- Placeholder for the game boxes -->
+    </div>
+    <script src="../script.js"></script> 
+    <script>
+        function loadSchedule(weekNumber) {
+            const scheduleContainer = document.getElementById("scheduleContainer");
+            const currentWeekDisplay = document.getElementById("currentWeek");
+            currentWeekDisplay.textContent = weekNumber;
+
+            console.log(`Loading schedule for Week ${weekNumber}`); // Debugging log
+            const currentWeekGames = nflSchedule[weekNumber]; 
+            console.log(`Current Week Games: `, currentWeekGames); 
+
+            scheduleContainer.innerHTML = ""; // Clear previous content
+
+            if (currentWeekGames) {
+                currentWeekGames.forEach(game => {
+                    const box = document.createElement("div");
+                    box.className = "game-box";
+
+                    // Populate the box with team names, time, and channel
+                    box.innerHTML = `
+                        <div class="team-names">
+                            <div>${game.awayTeam}</div>
+                            <div>${game.homeTeam}</div>
+                        </div>
+                        <div class="time-channel">${game.time ? 'Time: ' + game.time : 'Time: TBD'}</div>
+                        <div class="time-channel">${game.tv ? 'Channel: ' + game.tv : 'Channel: TBD'}</div>
+                    `;
+
+                    scheduleContainer.appendChild(box); 
+                });
+            } else {
+                scheduleContainer.innerHTML = "<p>No games scheduled for this week.</p>";
+                console.log(`No games scheduled for Week ${weekNumber}`); 
+            }
+        }
+
+        // Load the schedule for Week 4
+        loadSchedule(4);
+    </script>
+</body>
+</html>
