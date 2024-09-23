@@ -138,6 +138,7 @@
             <div class="media-control-panel">
                 <button id="external-play-btn" class="media-control-button">Play</button>
                 <button id="external-stop-btn" class="media-control-button">Stop</button>
+                <button id="fullscreen-btn" class="media-control-button">Fullscreen</button>
             </div>
         </div>
     </div>
@@ -272,22 +273,17 @@
             }
         }
 
-        // Control buttons
-        document.getElementById('external-play-btn').addEventListener('click', function() {
-            const iframeDocument = document.getElementById('gameIframe').contentDocument || document.getElementById('gameIframe').contentWindow.document;
-            const playButton = iframeDocument.querySelector('.player-poster.clickable');
-
-            if (playButton) {
-                playButton.click(); // Simulate click to play the stream
-            }
-        });
-
-        document.getElementById('external-stop-btn').addEventListener('click', function() {
-            const iframeDocument = document.getElementById('gameIframe').contentDocument || document.getElementById('gameIframe').contentWindow.document;
-            const stopButton = iframeDocument.querySelector('.media-control-button.media-control-icon.stopped');
-
-            if (stopButton) {
-                stopButton.click(); // Simulate click to stop the stream
+        // Fullscreen functionality
+        document.getElementById('fullscreen-btn').addEventListener('click', function() {
+            const iframe = document.getElementById('gameIframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
             }
         });
 
