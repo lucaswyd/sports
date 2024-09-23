@@ -71,9 +71,17 @@
         max-width: 900px; /* Maximum width */
         max-height: 80vh; /* Limit height of modal */
         overflow: hidden; /* Prevent overflow in the modal itself */
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow for better visibility */
         animation: slide-in 0.5s forwards;
     }
     
+    /* Optional: Add media queries for smaller screens */
+    @media (max-width: 600px) {
+        .modal-content {
+            width: 90%; /* Adjust width for smaller screens */
+            top: 40%; /* Adjust top for smaller screens */
+        }
+    }
     #gameIframe {
         width: 100%; /* Full width of modal */
         height: 600px; /* Increase height based on player size */
