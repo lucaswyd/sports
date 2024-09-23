@@ -8,12 +8,22 @@
     <title>NFL Schedule</title>
 </head>
 <body>
+    <script>
+        function loadSchedule(weekNumber) {
+        const scheduleContainer = document.getElementById("scheduleContainer");
+        const currentWeekDisplay = document.getElementById("currentWeek");
+        currentWeekDisplay.textContent = weekNumber;
+    </script>
     <div class="container">
         <h1 class="title">NFL</h1>
         <button id="viewSchedulesBtn" class="button">View Schedules</button> <!-- Change to button -->
-        <a href="https://embedme.top/embed/alpha/nfl-redzone-week-${currentWeek}/1`;">
+        <a href="https://embedme.top/embed/alpha/nfl-redzone-week-${weekNumber}/1`;">
         <button id="redZoneBtn" class="button">RedZone</button>
         </a>
     </div>
 </body>
 </html>
+function loadSchedule(weekNumber) {
+            const scheduleContainer = document.getElementById("scheduleContainer");
+            const currentWeekDisplay = document.getElementById("currentWeek");
+            currentWeekDisplay.textContent = weekNumber;
