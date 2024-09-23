@@ -101,12 +101,20 @@
     <!-- Modal structure -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
+            <span class="close" id="closeModal">×</span>
             <iframe id="gameIframe" width="100%" height="500px" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
         </div>
     </div>
 
     <script>
+        // Function to dynamically get the current week based on your existing method
+        function getCurrentWeek() {
+            const today = new Date();
+            const startOfSeason = new Date(today.getFullYear(), 9, 1); // October 1st
+            const weekNumber = Math.ceil((today - startOfSeason) / (1000 * 60 * 60 * 24 * 7));
+            return weekNumber > 0 ? weekNumber : 1; // Return 1 if before season starts
+        }
+
         // Open modal and load NFL Network stream
         document.getElementById("nflNetworkBtn").onclick = function() {
             document.getElementById("gameIframe").src = "https://embedme.top/embed/alpha/nfl-network/1/";
@@ -115,7 +123,7 @@
 
         // Open modal and load NFL RedZone stream based on the current week number
         document.getElementById("nflRedzoneBtn").onclick = function() {
-            const currentWeek = 4; // Change this number to set the current week
+            const currentWeek = getCurrentWeek();
             document.getElementById("gameIframe").src = `https://embedme.top/embed/nfl-redzone-week${currentWeek}/1/`;
             document.getElementById("myModal").style.display = "block";
         };
