@@ -66,21 +66,37 @@
         border: 1px solid #888;
         width: 80%; /* Wider modal */
         max-width: 900px; /* Maximum width */
-        /* Remove height and allow for content to dictate height */
         max-height: 80vh; /* Limit height of modal */
         overflow: hidden; /* Prevent overflow in the modal itself */
         animation: slide-in 0.5s forwards;
     }
     
-    #iframe {
+    #gameIframe {
         width: 100%; /* Full width of modal */
         height: 600px; /* Increase height based on player size */
         border: none; /* Optional: remove iframe border */
     }
 
-    .media-control-right-panel {
-        padding-right: 200px; /* Adjust padding as necessary */
+    .media-control-panel {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
     }
+
+    .media-control-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #007BFF;
+        color: white;
+        font-size: 16px;
+    }
+
+    .media-control-button:hover {
+        background-color: #0056b3;
+    }
+
     .close {
         color: #aaa;
         float: right;
@@ -119,46 +135,42 @@
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
             <iframe id="gameIframe" width="100%" height="200px"></iframe>
+            <div class="media-control-panel">
+                <button id="external-play-btn" class="media-control-button">Play</button>
+                <button id="external-stop-btn" class="media-control-button">Stop</button>
+            </div>
         </div>
     </div>
 
     <script src="../script.js"></script>
 
-    
     <script>
-        // popup blocker
-        
         // Global event listener to intercept clicks
-document.addEventListener('click', function(event) {
-    const target = event.target;
+        document.addEventListener('click', function(event) {
+            const target = event.target;
 
-    // Check if the target is an anchor and its href matches the blocked URL
-    if (target.tagName === 'A' && target.href.startsWith('https://linsaicki.net/')) {
-        event.preventDefault(); // Prevent navigation
-        alert("popup blocked");
-        console.log('Navigation to ' + target.href + ' is blocked.');
-    }
-});
-
-// MutationObserver to monitor and handle dynamically added nodes
-const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        mutation.addedNodes.forEach(function(node) {
-            // If the node is a link, check its href
-            if (node.tagName === 'A' && node.href.startsWith('https://linsaicki.net/')) {
-                node.remove(); // Remove the blocked link
+            // Check if the target is an anchor and its href matches the blocked URL
+            if (target.tagName === 'A' && target.href.startsWith('https://linsaicki.net/')) {
+                event.preventDefault(); // Prevent navigation
                 alert("popup blocked");
-                console.log('Blocked a dynamically created link to ' + node.href);
+                console.log('Navigation to ' + target.href + ' is blocked.');
             }
         });
-    });
-});
 
-// Start observing the document for new nodes being added
-observer.observe(document.body, { childList: true, subtree: true });
-    </script>
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.tagName === 'A' && node.href.startsWith('https://linsaicki.net/')) {
+                        node.remove(); // Remove the blocked link
+                        alert("popup blocked");
+                        console.log('Blocked a dynamically created link to ' + node.href);
+                    }
+                });
+            });
+        });
 
-    <script>
+        observer.observe(document.body, { childList: true, subtree: true });
+
         // Mapping of team abbreviations to full names
         const teamNames = {
             "ARI": "arizona-cardinals",
@@ -185,7 +197,7 @@ observer.observe(document.body, { childList: true, subtree: true });
             "NE": "new-england-patriots",
             "NO": "new-orleans-saints",
             "NYG": "new-york-giants",
-            "NYG": "new-york-jets",
+            "NYJ": "new-york-jets",
             "PHI": "philadelphia-eagles",
             "PIT": "pittsburgh-steelers",
             "SF": "san-francisco-49ers",
@@ -196,7 +208,6 @@ observer.observe(document.body, { childList: true, subtree: true });
         };
 
         function getIframeUrl(awayTeam, homeTeam) {
-            // Create a formatted URL using the full team names
             const awayTeamName = teamNames[awayTeam];
             const homeTeamName = teamNames[homeTeam];
             return `https://embedme.top/embed/alpha/${homeTeamName}-vs-${awayTeamName}/1`;
@@ -260,6 +271,26 @@ observer.observe(document.body, { childList: true, subtree: true });
                 document.getElementById("gameIframe").src = ""; // Clear the iframe URL
             }
         }
+
+        // Control buttons
+        document.getElementById('external-play-btn').addEventListener('click', function() {
+            const iframeDocument = document.getElementById('gameIframe').contentDocument || document.getElementById('gameIframe').contentWindow.document;
+            const playButton = iframeDocument.querySelector('.player-poster.clickable');
+
+            if (playButton) {
+                playButton.click(); // Simulate click to play the stream
+            }
+        });
+
+        document.getElementById('external-stop-btn').addEventListener('click', function() {
+            const iframeDocument = document.getElementById('gameIframe').contentDocument || document.getElementById('gameIframe').contentWindow.document;
+            const stopButton = iframeDocument.querySelector('.media-control-button.media-control-icon.stopped');
+
+            if (stopButton) {
+                stopButton.click(); // Simulate click to stop the stream
+            }
+        });
+
     </script>
 </body>
 </html>
