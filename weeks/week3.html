@@ -59,14 +59,22 @@
         animation: slide-in 0.5s forwards;
     }
 
-    .modal-content {
+        .modal-content {
         background-color: #fefefe;
         margin: 10% auto; /* Center the modal */
         padding: 20px;
         border: 1px solid #888;
         width: 80%; /* Bigger width */
         max-width: 900px; /* Maximum width */
+        height: auto; /* Allow height to be determined by content */
+        max-height: 80vh; /* Maximum height relative to viewport height */
+        overflow: auto; /* Enable scrolling if content overflows */
         animation: slide-in 0.5s forwards;
+    }
+    
+    #iframe {
+        width: 100%; /* Full width of modal */
+        height: 500px; /* Increase height as needed */
     }
 
     .close {
