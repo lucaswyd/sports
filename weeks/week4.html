@@ -233,6 +233,7 @@
 
                     // Populate the box with team names and placeholder text
                     box.innerHTML = `
+                        <div class="day">${game.day ? + game.day : 'Day N/A'}</div>
                         <div class="team-names">
                             <div>${game.awayTeam}</div>
                             <div>${game.homeTeam}</div>
