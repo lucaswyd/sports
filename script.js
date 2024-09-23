@@ -1,6 +1,6 @@
 // Weeks
-const nflSchedule = [];
-nflSchedule[1] = [
+const nflSchedule = {
+1: [
   { day: "Thursday", homeTeam: "KC", awayTeam: "BAL" },
   { day: "Friday", homeTeam: "PHI", awayTeam: "GB" },
   { day: "Sunday", homeTeam: "PIT", awayTeam: "ATL" },
@@ -18,7 +18,7 @@ nflSchedule[1] = [
   { day: "Sunday", homeTeam: "DET", awayTeam: "LAR" },
   { day: "Monday", homeTeam: "SF", awayTeam: "NYJ" }
 ];
-nflSchedule[2] = [
+2: [
   { day: "Thursday", homeTeam: "MIA", awayTeam: "BUF" },
   { day: "Sunday", homeTeam: "DAL", awayTeam: "NO" },
   { day: "Sunday", homeTeam: "DET", awayTeam: "TB" },
@@ -36,7 +36,7 @@ nflSchedule[2] = [
   { day: "Sunday", homeTeam: "HOU", awayTeam: "CHI" },
   { day: "Monday", homeTeam: "PHI", awayTeam: "ATL" }
 ];
-nflSchedule[3] = [
+3: [
   { day: "Thursday", homeTeam: "NYJ", awayTeam: "NE" },
   { day: "Sunday", homeTeam: "CAR", awayTeam: "LV" },
   { day: "Sunday", homeTeam: "MIA", awayTeam: "SEA" },
@@ -54,7 +54,7 @@ nflSchedule[3] = [
   { day: "Monday", homeTeam: "JAX", awayTeam: "BUF" },
   { day: "Monday", homeTeam: "WSH", awayTeam: "CIN" }
 ];
-nflSchedule[4] = [
+4: [
   { day: "Thursday", homeTeam: "NYG", awayTeam: "DAL", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "ATL", awayTeam: "NO", time: "12:00 PM", tv: "FOX" },
   { day: "Sunday", homeTeam: "CHI", awayTeam: "LAC", time: "12:00 PM", tv: "FOX" },
@@ -72,7 +72,7 @@ nflSchedule[4] = [
   { day: "Monday", homeTeam: "MIA", awayTeam: "TEN", time: "6:30 PM", tv: "ESPN" },
   { day: "Monday", homeTeam: "DET", awayTeam: "SEA", time: "7:15 PM", tv: "ABC" }
 ];
-nflSchedule[5] = [
+5: [
   { day: "Thursday", homeTeam: "ATL", awayTeam: "TB", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "MIN", awayTeam: "NYJ", time: "8:30 AM", tv: "NFL Net" },
   { day: "Sunday", homeTeam: "CHI", awayTeam: "CAR", time: "12:00 PM", tv: "FOX" },
@@ -88,7 +88,7 @@ nflSchedule[5] = [
   { day: "Sunday", homeTeam: "PIT", awayTeam: "DAL", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "KC", awayTeam: "NO", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[6] = [
+6: [
   { day: "Thursday", homeTeam: "SEA", awayTeam: "SF", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "CHI", awayTeam: "JAX", time: "8:30 AM", tv: "NFL Net" },
   { day: "Sunday", homeTeam: "GB", awayTeam: "ARI", time: "12:00 PM", tv: "FOX" },
@@ -104,7 +104,7 @@ nflSchedule[6] = [
   { day: "Sunday", homeTeam: "NYJ", awayTeam: "CIN", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "NYG", awayTeam: "BUF", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[7] = [
+7: [
   { day: "Thursday", homeTeam: "NO", awayTeam: "DEN", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "JAX", awayTeam: "NE", time: "8:30 AM", tv: "NFL Net" },
   { day: "Sunday", homeTeam: "ATL", awayTeam: "SEA", time: "12:00 PM", tv: "FOX" },
@@ -121,7 +121,7 @@ nflSchedule[7] = [
   { day: "Monday", homeTeam: "TB", awayTeam: "BAL", time: "7:15 PM", tv: "ESPN" },
   { day: "Monday", homeTeam: "ARI", awayTeam: "LAR", time: "8:00 PM", tv: "ESPN+" }
 ];
-nflSchedule[8] = [
+8: [
   { day: "Thursday", homeTeam: "LAR", awayTeam: "MIN", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "CLE", awayTeam: "BAL", time: "12:00 PM", tv: "CBS" },
   { day: "Sunday", homeTeam: "DET", awayTeam: "TEN", time: "12:00 PM", tv: "FOX" },
@@ -139,7 +139,7 @@ nflSchedule[8] = [
   { day: "Sunday", homeTeam: "SF", awayTeam: "DAL", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "PIT", awayTeam: "NYJ", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[9] = [
+9: [
   { day: "Thursday", homeTeam: "NYJ", awayTeam: "HOU", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "ATL", awayTeam: "DAL", time: "12:00 PM", tv: "FOX" },
   { day: "Sunday", homeTeam: "BUF", awayTeam: "MIA", time: "12:00 PM", tv: "CBS" },
@@ -156,7 +156,7 @@ nflSchedule[9] = [
   { day: "Sunday", homeTeam: "PHI", awayTeam: "JAC", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "KC", awayTeam: "TB", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[10] = [
+10: [
   { day: "Thursday", homeTeam: "BAL", awayTeam: "CIN", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "CAR", awayTeam: "NYG", time: "8:30 AM", tv: "NFL Net" },
   { day: "Sunday", homeTeam: "CHI", awayTeam: "NE", time: "12:00 PM", tv: "FOX" },
@@ -172,7 +172,7 @@ nflSchedule[10] = [
   { day: "Sunday", homeTeam: "HOU", awayTeam: "DET", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "LAR", awayTeam: "MIA", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[11] = [
+11: [
   { day: "Thursday", homeTeam: "PHI", awayTeam: "WSH", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "CHI", awayTeam: "GB", time: "12:00 PM", tv: "FOX" },
   { day: "Sunday", homeTeam: "DET", awayTeam: "JAC", time: "12:00 PM", tv: "CBS" },
@@ -188,7 +188,7 @@ nflSchedule[11] = [
   { day: "Sunday", homeTeam: "NYJ", awayTeam: "IND", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "DAL", awayTeam: "HOU", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[12] = [
+12: [
   { day: "Thursday", homeTeam: "CLE", awayTeam: "PIT", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "CHI", awayTeam: "MIN", time: "12:00 PM", tv: "FOX" },
   { day: "Sunday", homeTeam: "IND", awayTeam: "DET", time: "12:00 PM", tv: "FOX" },
@@ -203,7 +203,7 @@ nflSchedule[12] = [
   { day: "Sunday", homeTeam: "LAR", awayTeam: "PHI", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "LAR", awayTeam: "BAL", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[13] = [
+13: [
   { day: "Thursday", homeTeam: "DET", awayTeam: "CHI", time: "11:30 AM", tv: "CBS" },
   { day: "Thursday", homeTeam: "DAL", awayTeam: "NYG", time: "3:30 PM", tv: "FOX" },
   { day: "Thursday", homeTeam: "GB", awayTeam: "MIA", time: "7:20 PM", tv: "NBC" },
@@ -221,7 +221,7 @@ nflSchedule[13] = [
   { day: "Sunday", homeTeam: "BUF", awayTeam: "SF", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "DEN", awayTeam: "CLE", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[14] = [
+14: [
   { day: "Thursday", homeTeam: "DET", awayTeam: "GB", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "TEN", awayTeam: "JAC", time: "12:00 PM", tv: "CBS" },
   { day: "Sunday", homeTeam: "MIA", awayTeam: "NYG", time: "12:00 PM", tv: "CBS" },
@@ -236,7 +236,7 @@ nflSchedule[14] = [
   { day: "Sunday", homeTeam: "KC", awayTeam: "LAR", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "DAL", awayTeam: "CIN", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[15] = [
+15: [
   { day: "Thursday", homeTeam: "SF", awayTeam: "LAR", time: "7:15 PM", tv: "Prime Video" },
   { day: "Sunday", homeTeam: "CLE", awayTeam: "KC", time: "12:00 PM", tv: "CBS" },
   { day: "Sunday", homeTeam: "TEN", awayTeam: "CIN", time: "12:00 PM", tv: "FOX" },
@@ -254,7 +254,7 @@ nflSchedule[15] = [
   { day: "Monday", homeTeam: "MIN", awayTeam: "CHI", time: "7:00 PM", tv: "ABC" },
   { day: "Monday", homeTeam: "LV", awayTeam: "ATL", time: "7:30 PM", tv: "ESPN" }
 ];
-nflSchedule[16] = [
+16: [
   { day: "Thursday", homeTeam: "CIN", awayTeam: "CLE", time: "7:15 PM", tv: "Prime Video" },
   { day: "Saturday", homeTeam: "KC", awayTeam: "HOU", time: "12:00 PM", tv: "NBC" },
   { day: "Saturday", homeTeam: "BAL", awayTeam: "PIT", time: "3:30 PM", tv: "FOX" },
@@ -272,7 +272,7 @@ nflSchedule[16] = [
   { day: "Sunday", homeTeam: "DAL", awayTeam: "TB", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "GB", awayTeam: "NO", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[17] = [
+17: [
   { day: "Wednesday", homeTeam: "PIT", awayTeam: "KC", time: "12:00 PM", tv: "Netflix" },
   { day: "Wednesday", homeTeam: "HOU", awayTeam: "BAL", time: "3:30 PM", tv: "Netflix" },
   { day: "Thursday", homeTeam: "CHI", awayTeam: "SEA", time: "7:15 PM", tv: "Prime Video" },
@@ -290,7 +290,7 @@ nflSchedule[17] = [
   { day: "Sunday", homeTeam: "CLE", awayTeam: "MIA", time: "7:20 PM", tv: "NBC" },
   { day: "Monday", homeTeam: "SF", awayTeam: "DET", time: "7:15 PM", tv: "ESPN" }
 ];
-nflSchedule[18] = [
+18: [
   { day: "Sunday", homeTeam: "ATL", awayTeam: "CAR", time: "TBD", tv: "TBD" },
   { day: "Sunday", homeTeam: "DAL", awayTeam: "WAS", time: "TBD", tv: "TBD" },
   { day: "Sunday", homeTeam: "DEN", awayTeam: "KC", time: "TBD", tv: "TBD" },
@@ -308,48 +308,48 @@ nflSchedule[18] = [
   { day: "Sunday", homeTeam: "TB", awayTeam: "NO", time: "TBD", tv: "TBD" },
   { day: "Sunday", homeTeam: "BAL", awayTeam: "CLE", time: "TBD", tv: "TBD" }
 ];
-
+}
 const nflBye = [];
 // Byes
-nflBye[5] = [
+nflBye[5: [
   { bye: "DET" },
   { bye: "LAC" },
   { bye: "PHI" },
   { bye: "TEN" },
 ];
 
-nflBye[6] = [
+nflBye[6: [
   { bye: "KC" },
   { bye: "LAR" },
   { bye: "MIA" },
   { bye: "MIN" },
 ];
 
-nflBye[7] = [
+nflBye[7: [
   { bye: "CHI" },
   { bye: "DAL" },
 ];
 
-nflBye[9] = [
+nflBye[9: [
   { bye: "PIT" },
   { bye: "SF" },
 ];
 
-nflBye[10] = [
+nflBye[10: [
   { bye: "CLE" },
   { bye: "GB" },
   { bye: "LV" },
   { bye: "SEA" },
 ];
 
-nflBye[11] = [
+nflBye[11: [
   { bye: "ARI" },
   { bye: "CAR" },
   { bye: "NYG" },
   { bye: "TB" },
 ];
 
-nflBye[12] = [
+nflBye[12: [
   { bye: "ATL" },
   { bye: "BUF" },
   { bye: "CIN" },
@@ -358,7 +358,7 @@ nflBye[12] = [
   { bye: "NYJ" },
 ];
 
-nflBye[14] = [
+nflBye[14: [
   { bye: "BAL" },
   { bye: "DEN" },
   { bye: "HOU" },
