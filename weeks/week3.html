@@ -139,6 +139,7 @@
                 <button id="external-play-btn" class="media-control-button">Play</button>
                 <button id="external-stop-btn" class="media-control-button">Stop</button>
                 <button id="fullscreen-btn" class="media-control-button">Fullscreen</button>
+                <button id="unmute-btn" class="media-control-button">Unmute Player</button>
             </div>
         </div>
     </div>
@@ -285,6 +286,15 @@
             } else if (iframe.msRequestFullscreen) { // IE/Edge
                 iframe.msRequestFullscreen();
             }
+        });
+
+        // Unmute functionality
+        document.getElementById('unmute-btn').addEventListener('click', function() {
+            const iframe = document.getElementById('gameIframe');
+            iframe.contentWindow.postMessage({ action: 'unmute' }, '*'); // Inform the iframe to unmute
+
+            // Alternatively, if you want to directly manipulate audio (or iframes allow it)
+            // iframe.volume = 1; // This won't work due to cross-origin restrictions.
         });
 
     </script>
