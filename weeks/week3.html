@@ -43,6 +43,11 @@
             color: #777;
             font-size: 1em;
         }
+
+        .day-date {
+            font-size: 0.9em;
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -68,8 +73,14 @@
                     const box = document.createElement("div");
                     box.className = "game-box";
 
-                    // Populate the box with team names, time, and channel
+                    // Create a date string if you want to include the date (optional, can be added)
+                    const date = new Date(); // Example: today's date
+                    const dayOfWeek = game.day; // Extract the day from the game object
+                    const dateString = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }); // Format the date
+
+                    // Populate the box with team names, day, time, and channel
                     box.innerHTML = `
+                        <div class="day-date">${dayOfWeek}${date ? ', ' + dateString : ''}</div>
                         <div class="team-names">
                             <div>${game.awayTeam}</div>
                             <div>${game.homeTeam}</div>
