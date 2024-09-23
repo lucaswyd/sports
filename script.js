@@ -308,7 +308,6 @@ const nflSchedule = {
   { day: "Sunday", homeTeam: "TB", awayTeam: "NO", time: "TBD", tv: "TBD" },
   { day: "Sunday", homeTeam: "BAL", awayTeam: "CLE", time: "TBD", tv: "TBD" }
 ];
-}
 const nflBye = [];
 // Byes
 nflBye[5: [
