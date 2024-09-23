@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Live Streams</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>NFL Live Stream</title>
+    <link rel="stylesheet" href="../styles.css"> 
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,30 +15,24 @@
 
         .container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .game-box {
-            background-color: #0d0d0d;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            padding: 20px;
-            width: 200px;
-            text-align: center;
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
             cursor: pointer;
+            margin: 10px;
             transition: background-color 0.3s;
         }
 
-        .game-box:hover {
-            background-color: #818181;
-        }
-
-        .team-names {
-            color: #f2f2f2;
-            font-size: 1.2em;
-            margin: 10px 0;
+        .button:hover {
+            background-color: #0056b3;
         }
 
         .modal {
@@ -55,23 +49,18 @@
 
         .modal-content {
             background-color: #212121;
-            position: absolute; /* Change to absolute positioning for centering */
-            margin: 0% auto;
-            top: 50%; /* Position 50% from the top */
-            left: 50%; /* Position 50% from the left */
-            transform: translate(-50%, -50%); /* Center the modal */
+            margin: 0% auto; /* Center the modal */
             padding: 20px;
             border: 1px solid #888;
             width: 80%; /* Wider modal */
             max-width: 900px; /* Maximum width */
-            /*max-height: 80vh; /* Limit height of modal */
             overflow: hidden; /* Prevent overflow in the modal itself */
             animation: slide-in 0.5s forwards;
         }
 
         #gameIframe {
             width: 100%; /* Full width of modal */
-            height: 600px; /* Increase height based on player size */
+            height: 600px; /* Height of iframe */
             border: none; /* Optional: remove iframe border */
         }
 
@@ -103,16 +92,10 @@
     </style>
 </head>
 <body>
-    <h1>NFL Live Streams for Week <span id="currentWeek"></span></h1>
-    <div class="container" id="scheduleContainer">
-        <div class="game-box" id="redzoneBox">
-            <div class="team-names">NFL RedZone</div>
-            <div class="time-channel">Watch live NFL RedZone</div>
-        </div>
-        <div class="game-box" id="nflNetworkBox">
-            <div class="team-names">NFL Network</div>
-            <div class="time-channel">Watch live NFL Network</div>
-        </div>
+    <h1>NFL Live Stream</h1>
+    <div class="container">
+        <button id="nflNetworkBtn" class="button">NFL Network</button>
+        <button id="nflRedzoneBtn" class="button">NFL RedZone</button>
     </div>
 
     <!-- Modal structure -->
@@ -124,38 +107,16 @@
     </div>
 
     <script>
-        // Function to get current week number
-        function getCurrentWeek() {
-            const today = new Date();
-            // Consider the NFL season start week as a constant or use specific start date
-            const seasonStart = new Date(today.getFullYear(), 8, 7); // NFL season starts early September
-            const weekNumber = Math.ceil(((today - seasonStart) / (1000 * 60 * 60 * 24 * 7)));
-            return weekNumber > 0 ? weekNumber : 0; // Ensure a non-negative value
-        }
-
-        // Set the week number on the page
-        const currentWeekNumber = getCurrentWeek();
-        document.getElementById("currentWeek").textContent = currentWeekNumber;
-
-        // Function to get the URL for NFL RedZone
-        function getRedZoneUrl() {
-            return `https://embedme.top/embed/nfl-redzone-week-${currentWeekNumber}/1/`;
-        }
-
-        // Function to get the URL for NFL Network
-        function getNflNetworkUrl() {
-            return `https://embedme.top/embed/alpha/nfl-network/1/`;
-        }
-
-        // Set click event for RedZone box
-        document.getElementById("redzoneBox").onclick = function() {
-            document.getElementById("gameIframe").src = getRedZoneUrl();
+        // Open modal and load NFL Network stream
+        document.getElementById("nflNetworkBtn").onclick = function() {
+            document.getElementById("gameIframe").src = "https://embedme.top/embed/alpha/nfl-network/1/";
             document.getElementById("myModal").style.display = "block";
         };
 
-        // Set click event for NFL Network box
-        document.getElementById("nflNetworkBox").onclick = function() {
-            document.getElementById("gameIframe").src = getNflNetworkUrl();
+        // Open modal and load NFL RedZone stream based on the current week number
+        document.getElementById("nflRedzoneBtn").onclick = function() {
+            const currentWeek = 4; // Change this number to set the current week
+            document.getElementById("gameIframe").src = `https://embedme.top/embed/nfl-redzone-week${currentWeek}/1/`;
             document.getElementById("myModal").style.display = "block";
         };
 
@@ -163,16 +124,16 @@
         document.getElementById("closeModal").onclick = function() {
             document.getElementById("myModal").style.display = "none";
             document.getElementById("gameIframe").src = ""; // Clear the iframe URL
-        }
+        };
 
-        // Close modal when clicking outside of it
+        // Close the modal when clicking outside of it
         window.onclick = function(event) {
             const modal = document.getElementById("myModal");
             if (event.target == modal) {
                 modal.style.display = "none";
                 document.getElementById("gameIframe").src = ""; // Clear the iframe URL
             }
-        }
+        };
     </script>
 </body>
 </html>
