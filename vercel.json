@@ -1,5 +1,3 @@
 {
-    "rewrites": [
-        { "source": "/weeks/week4", "destination": "/weeks/week4.html" }
-    ]
+    "cleanUrls": true
 }
