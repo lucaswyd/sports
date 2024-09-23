@@ -5,135 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFL Game Schedule for Week 4</title>
     <link rel="stylesheet" href="../styles.css"> 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #212121;
-        margin: 0;
-        padding: 20px;
-    }
-
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .game-box {
-        background-color: #0d0d0d;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        margin: 10px;
-        padding: 20px;
-        width: 200px;
-        text-align: center;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .game-box:hover {
-        background-color: #818181;
-    }
-
-    .team-names {
-        color: #f2f2f2;
-        font-size: 1.2em;
-        margin: 10px 0;
-    }
-
-    .time-channel {
-        color: #f2f2f2;
-        font-size: 1em;
-    }
-    
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1000; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-/*        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        animation: slide-in 0.5s forwards;
-    }
-
-    .modal-content {
-        background-color: #212121;
-        margin: 0% auto; /* Center the modal */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* Wider modal */
-        max-width: 900px; /* Maximum width */
-        /*max-height: 80vh; /* Limit height of modal */
-        overflow: hidden; /* Prevent overflow in the modal itself */
-        animation: slide-in 0.5s forwards;
-    }
-    
-    /* Optional: Add media queries for smaller screens */
-    @media (max-width: 600px) {
-        .modal-content {
-            width: 90%; /* Adjust width for smaller screens */
-            top: 40%; /* Adjust top for smaller screens */
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #212121;
+            margin: 0;
+            padding: 20px;
         }
-    }
-    #gameIframe {
-        width: 100%; /* Full width of modal */
-        height: 600px; /* Increase height based on player size */
-        border: none; /* Optional: remove iframe border */
-    }
 
-    .media-control-panel {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 10px;
-    }
-
-    .media-control-button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        background-color: #007BFF;
-        color: white;
-        font-size: 16px;
-    }
-
-    .media-control-button:hover {
-        background-color: #0056b3;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* Animation */
-    @keyframes slide-in {
-        from {
-            top: -300px;
-            opacity: 0;
+        /* Carousel Styles */
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 10px 0;
+            background-color: #333;
+            border-radius: 8px;
         }
-        to {
+
+        .week-button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            flex: 0 0 auto; /* Prevent shrink and allow independent width */
+        }
+
+        .week-button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px; /* Add some margin to separate carousel from schedule */
+        }
+
+        .game-box {
+            background-color: #0d0d0d;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .game-box:hover {
+            background-color: #818181;
+        }
+
+        .team-names {
+            color: #f2f2f2;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .time-channel {
+            color: #f2f2f2;
+            font-size: 1em;
+        }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
             top: 0;
-            opacity: 1;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            animation: slide-in 0.5s forwards;
         }
-    }
-</style>
+
+        .modal-content {
+            background-color: #212121;
+            margin: 0% auto; /* Center the modal */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Wider modal */
+            max-width: 900px; /* Maximum width */
+            overflow: hidden; /* Prevent overflow in the modal itself */
+            animation: slide-in 0.5s forwards;
+        }
+        
+        /* Optional: Add media queries for smaller screens */
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 90%; /* Adjust width for smaller screens */
+                top: 40%; /* Adjust top for smaller screens */
+            }
+        }
+
+        #gameIframe {
+            width: 100%; /* Full width of modal */
+            height: 600px; /* Increase height based on player size */
+            border: none; /* Optional: remove iframe border */
+        }
+
+        .media-control-panel {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .media-control-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+        }
+
+        .media-control-button:hover {
+            background-color: #0056b3;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Animation */
+        @keyframes slide-in {
+            from {
+                top: -300px;
+                opacity: 0;
+            }
+            to {
+                top: 0;
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>NFL Schedule for Week <span id="currentWeek"></span></h1>
+
+    <!-- Carousel for weeks 1-18 -->
+    <div class="carousel-container" id="weekCarousel">
+        <button class="week-button" onclick="loadWeek(1)">Week 1</button>
+        <button class="week-button" onclick="loadWeek(2)">Week 2</button>
+        <button class="week-button" onclick="loadWeek(3)">Week 3</button>
+        <button class="week-button" onclick="loadWeek(4)">Week 4</button>
+        <button class="week-button" onclick="loadWeek(5)">Week 5</button>
+        <button class="week-button" onclick="loadWeek(6)">Week 6</button>
+        <button class="week-button" onclick="loadWeek(7)">Week 7</button>
+        <button class="week-button" onclick="loadWeek(8)">Week 8</button>
+        <button class="week-button" onclick="loadWeek(9)">Week 9</button>
+        <button class="week-button" onclick="loadWeek(10)">Week 10</button>
+        <button class="week-button" onclick="loadWeek(11)">Week 11</button>
+        <button class="week-button" onclick="loadWeek(12)">Week 12</button>
+        <button class="week-button" onclick="loadWeek(13)">Week 13</button>
+        <button class="week-button" onclick="loadWeek(14)">Week 14</button>
+        <button class="week-button" onclick="loadWeek(15)">Week 15</button>
+        <button class="week-button" onclick="loadWeek(16)">Week 16</button>
+        <button class="week-button" onclick="loadWeek(17)">Week 17</button>
+        <button class="week-button" onclick="loadWeek(18)">Week 18</button>
+    </div>
+
     <div class="container" id="scheduleContainer">
         <!-- Placeholder for the game boxes -->
     </div>
@@ -249,7 +300,6 @@
 
                     // Add click event to open modal with correct iframe URL
                     box.onclick = function() {
-                     // alert('unmute button opens a popup in a new tab');
                         const iframeUrl = getIframeUrl(game.awayTeam, game.homeTeam);
                         document.getElementById("gameIframe").src = iframeUrl;
                         document.getElementById("myModal").style.display = "block";
@@ -271,7 +321,7 @@
 
         // Load the schedule for Week 4
         loadSchedule(4);
-        
+
         // Close the modal when clicking outside of it
         window.onclick = function(event) {
             const modal = document.getElementById("myModal");
@@ -294,6 +344,11 @@
                 iframe.msRequestFullscreen();
             }
         });
+
+        // Function to load selected week's schedule
+        function loadWeek(weekNumber) {
+            loadSchedule(weekNumber); // Call your existing loadSchedule function with selected week number
+        }
 
     </script>
 </body>
