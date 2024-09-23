@@ -41,7 +41,11 @@
             border: 1px solid #888; /* Optional border on hover */
         }
 
-        /* Modal and other styles remain unchanged from your previous implementation */
+        img {
+            max-width: 100%; /* Ensure the image fits within the button */
+            height: auto; /* Maintain aspect ratio */
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -100,8 +104,12 @@
 <body>
     <h1>NFL Live Stream</h1>
     <div class="container">
-        <div id="nflNetworkBtn" class="button">NFL Network</div>
-        <div id="nflRedzoneBtn" class="button">NFL RedZone</div>
+        <div id="nflNetworkBtn" class="button">
+            <img src="https://cdn.worldvectorlogo.com/logos/nfl-network-logo.svg" alt="NFL Network Logo">
+        </div>
+        <div id="nflRedzoneBtn" class="button">
+            <img src="https://e7.pngegg.com/pngimages/864/57/png-clipart-nfl-regular-season-nfl-redzone-nfl-network-nfl-preseason-nfl-television-flag.png" alt="NFL RedZone Logo">
+        </div>
     </div>
 
     <!-- Modal structure -->
