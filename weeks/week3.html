@@ -57,8 +57,11 @@
             const currentWeekDisplay = document.getElementById("currentWeek");
             currentWeekDisplay.textContent = weekNumber;
 
+            console.log(`Loading schedule for Week ${weekNumber}`); // Debugging log
             const currentWeekGames = nflSchedule[weekNumber]; 
-            scheduleContainer.innerHTML = "";
+            console.log(`Current Week Games: `, currentWeekGames); // Debugging log to see the schedule
+
+            scheduleContainer.innerHTML = ""; // Clear previous content
 
             if (currentWeekGames) {
                 currentWeekGames.forEach(game => {
@@ -79,6 +82,7 @@
                 });
             } else {
                 scheduleContainer.innerHTML = "<p>No games scheduled for this week.</p>";
+                console.log(`No games scheduled for Week ${weekNumber}`); // Debugging log
             }
         }
 
