@@ -64,17 +64,18 @@
         margin: 10% auto; /* Center the modal */
         padding: 20px;
         border: 1px solid #888;
-        width: 80%; /* Bigger width */
+        width: 80%; /* Wider modal */
         max-width: 900px; /* Maximum width */
-        height: auto; /* Allow height to be determined by content */
-        max-height: 80vh; /* Maximum height relative to viewport height */
-        overflow: auto; /* Enable scrolling if content overflows */
+        /* Remove height and allow for content to dictate height */
+        max-height: 80vh; /* Limit height of modal */
+        overflow: hidden; /* Prevent overflow in the modal itself */
         animation: slide-in 0.5s forwards;
     }
     
     #iframe {
         width: 100%; /* Full width of modal */
-        height: 1000px; /* Increase height as needed */
+        height: 600px; /* Increase height based on player size */
+        border: none; /* Optional: remove iframe border */
     }
 
     .close {
