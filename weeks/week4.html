@@ -51,12 +51,12 @@
             margin: 10px 0;
             display: flex;
             align-items: center; /* Align logo and text vertically */
+            justify-content: center; /* Center align logos and team names */
         }
 
         .team-logo {
             width: 40px; /* Set the logo size */
             height: 40px; /* Set the logo size */
-            text-align: center;
             margin-right: 10px; /* Space between logo and text */
             filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Glow effect */
         }
@@ -263,11 +263,11 @@
                         <div class="day">${game.day ? game.day : 'Day N/A'}</div>
                         <div class="team-names">
                             <img class="team-logo" src="${getLogoUrl(game.awayTeam)}" alt="${teamNames[game.awayTeam]} Logo">
-                            <div>${game.awayTeam}</div>
+                            <div>${teamNames[game.awayTeam]}</div>
                         </div>
                         <div class="team-names">
                             <img class="team-logo" src="${getLogoUrl(game.homeTeam)}" alt="${teamNames[game.homeTeam]} Logo">
-                            <div>${game.homeTeam}</div>
+                            <div>${teamNames[game.homeTeam]}</div>
                         </div>
                         <div class="time-channel">${game.time ? 'Time: ' + game.time : 'Time: TBD'}</div>
                         <div class="time-channel">${game.tv ? 'Channel: ' + game.tv : 'Channel: TBD'}</div>
