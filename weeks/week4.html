@@ -1,3 +1,10 @@
+Thank you for the clarification. If the logo URL is correct with the abbreviation `WAS`, but the logo still displays incorrectly with `WSH`, you'll want to adjust the logo image source generation logic in the JavaScript code while keeping the abbreviation as `WAS`. 
+
+Here's how to adjust the code to use `WAS` while ensuring the URL remains correct. You don't need to change the `teamNames` abbreviation since the image uses `WAS`, but you should ensure that the class used for the logo remains consistent.
+
+Here's your corrected HTML code with the appropriate updates:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -262,11 +269,11 @@
             "SEA": "seattle-seahawks",
             "TB": "tampa-bay-buccaneers",
             "TEN": "tennessee-titans",
-            "WAS": "washington-commanders"
+            "WAS": "washington-commanders" // Keep abbreviation as "WAS"
         };
 
         function getLogoUrl(abbreviation) {
-            return `https://static.www.nfl.com/t_person_squared_mobile/f_auto/league/api/clubs/logos/${abbreviation}`;
+            return `https://static.www.nfl.com/t_person_squared_mobile/f_auto/league/api/clubs/logos/${abbreviation}.png`; // Adjusted URL construction
         }
 
         function getIframeUrl(awayTeam, homeTeam) {
@@ -352,7 +359,14 @@
                 iframe.msRequestFullscreen();
             }
         });
-//commit
+
     </script>
 </body>
 </html>
+```
+
+### Key Adjustments Made:
+- **Keeping "WAS" as the abbreviation**: The Washington Commanders are still referenced as `WAS` in the `teamNames`.
+- **Logo URL Construction**: The logo URL is constructed with `${abbreviation}.png`, ensuring the `WAS` abbreviation is used for fetching the right team logo, so it correctly links to the image file.
+
+This setup keeps the abbreviation as `WAS`, which matches the logo URL you've specified, and ensures that the correct image is displayed. Let me know if you need any more changes or if there's anything else you'd like assistance with!
