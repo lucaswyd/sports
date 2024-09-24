@@ -1,14 +1,15 @@
 @font-face {
-    font-family: 'ElectronicArtsDisplay';
-    src: url('fonts/ElectronicArtsDisplay-Bold.otf') format('opentype'); /* Ensure path is correct */
+    font-family: 'ElectronicArtsDisplayBold';
+    src: url('../fonts/ElectronicArtsDisplay-Bold.otf') format('opentype'); /* Ensure the path is correct */
     font-weight: bold;
     font-style: normal;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: 'ElectronicArtsDisplayRegular';
+    src: url('../fonts/ElectronicArtsDisplay-Regular.ttf') format('truetype'); /* Ensure the path is correct */
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
@@ -26,7 +27,7 @@ body {
 }
 
 .title {
-    font-family: 'ElectronicArtsDisplay', sans-serif; /* Ensure title uses new font */
+    font-family: 'ElectronicArtsDisplayBold', sans-serif; /* Ensure title uses new font */
     font-size: 3em;
     margin-bottom: 20px;
 }
