@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'ElectronicArtsDisplay';
+    src: url('fonts/ElectronicArtsDisplay-Bold.otf') format('opentype'); /* Ensure path is correct */
+    font-weight: bold;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,7 +12,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'ElectronicArtsDisplay', sans-serif; /* Changed to the new font */
     background-color: #282c34;
     color: #ffffff;
     height: 100vh;
@@ -19,6 +26,7 @@ body {
 }
 
 .title {
+    font-family: 'ElectronicArtsDisplay', sans-serif; /* Ensure title uses new font */
     font-size: 3em;
     margin-bottom: 20px;
 }
