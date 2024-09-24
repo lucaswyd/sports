@@ -41,6 +41,7 @@ body {
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    font-family: 'ElectronicArtsDisplayRegular'; /* Use specific font for titles */
 }
 
 .button:hover {
