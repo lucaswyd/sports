@@ -8,34 +8,84 @@
     <style>
         @font-face {
             font-family: 'ElectronicArtsDisplayBold';
-            src: url('../fonts/ElectronicArtsDisplay-Bold.otf') format('opentype'); /* Ensure the path is correct */
+            src: url('../fonts/ElectronicArtsDisplay-Bold.otf') format('opentype');
             font-weight: bold;
             font-style: normal;
         }
 
         @font-face {
             font-family: 'ElectronicArtsDisplayRegular';
-            src: url('../fonts/ElectronicArtsDisplay-Regular.ttf') format('truetype'); /* Ensure the path is correct */
+            src: url('../fonts/ElectronicArtsDisplay-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
         body {
-            font-family: 'ElectronicArtsDisplayBold', sans-serif; /* Changed to the bold font for body */
+            font-family: 'ElectronicArtsDisplayBold', sans-serif;
             background-color: #212121;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center align all children including h1 */
+            align-items: center;
+            position: relative; /* Set relative position for absolute elements */
         }
 
         h1 {
-            color: #f2f2f2; /* Title color */
-            text-align: center; /* Center the text */
-            margin-bottom: 20px; /* Space between title and game boxes */
-            width: 100%; /* Ensures it takes full width */
-            font-family: 'ElectronicArtsDisplayBold'; /* Use specific font for titles */
+            color: #f2f2f2;
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+            font-family: 'ElectronicArtsDisplayBold';
+        }
+
+        /* Navbar styles */
+        .navbar {
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            display: inline-block;
+            padding: 10px 15px;
+            color: #f2f2f2;
+            text-decoration: none;
+            background-color: #333;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        /* Home button styles */
+        .home-button {
+            position: absolute; /* Position it in the top right */
+            top: 20px; /* Space from the top */
+            right: 20px; /* Space from the right */
+            background-color: #0d0d0d; /* Same style as game boxes */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #f2f2f2; /* Text color */
+            padding: 10px 15px;
+            text-decoration: none;
+            display: flex;
+            align-items: center; /* Center align icon and text */
+            transition: background-color 0.3s;
+        }
+
+        .home-button:hover {
+            background-color: #818181; /* Change background color on hover */
+        }
+
+        .home-button img {
+            width: 20px; /* Adjust icon size */
+            height: 20px;
+            margin-right: 5px; /* Space between icon and text */
         }
 
         .container {
@@ -54,8 +104,8 @@
             text-align: center;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-family: 'ElectronicArtsDisplayBold'; /* Change font for game box */
-            color: #f2f2f2; /* Change text color for better visibility */
+            font-family: 'ElectronicArtsDisplayBold';
+            color: #f2f2f2;
         }
 
         .game-box:hover {
@@ -67,14 +117,14 @@
             font-size: 1.2em;
             margin: 10px 0;
             display: flex;
-            align-items: center; /* Align logo and text vertically */
+            align-items: center;
         }
 
         .team-logo {
-            width: 35px; /* Set the logo size */
-            height: 35px; /* Set the logo size */
-            margin-right: 10px; /* Space between logo and text */
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Default glow effect */
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
         }
 
         /* Team-specific glow effects */
@@ -114,37 +164,37 @@
         .time-channel {
             color: #f2f2f2;
             font-size: 1em;
-            font-family: 'ElectronicArtsDisplayRegular'; /* Use regular font for time/channel text */
+            font-family: 'ElectronicArtsDisplayRegular';
         }
 
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
+            display: none;
+            position: fixed;
+            z-index: 1000;
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
             animation: slide-in 0.5s forwards;
         }
 
         .modal-content {
             background-color: #212121;
-            margin: 0% auto; /* Center the modal */
+            margin: 0% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Wider modal */
-            max-width: 900px; /* Maximum width */
-            overflow: hidden; /* Prevent overflow in the modal itself */
+            width: 80%;
+            max-width: 900px;
+            overflow: hidden;
             animation: slide-in 0.5s forwards;
-            font-family: 'ElectronicArtsDisplayBold'; /* Use new font for modal content */
+            font-family: 'ElectronicArtsDisplayBold';
         }
 
         #gameIframe {
-            width: 100%; /* Full width of modal */
-            height: 600px; /* Increase height based on player size */
-            border: none; /* Optional: remove iframe border */
+            width: 100%;
+            height: 600px;
+            border: none;
         }
 
         .media-control-panel {
@@ -181,7 +231,6 @@
             cursor: pointer;
         }
 
-        /* Animation */
         @keyframes slide-in {
             from {
                 top: -300px;
@@ -193,16 +242,28 @@
             }
         }
 
-        /* Optional: Add media queries for smaller screens */
         @media (max-width: 600px) {
             .modal-content {
-                width: 90%; /* Adjust width for smaller screens */
-                top: 40%; /* Adjust top for smaller screens */
+                width: 90%;
+                top: 40%;
             }
         }
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="week1.html">Week 1</a>
+        <a href="week2.html">Week 2</a>
+        <a href="week3.html">Week 3</a>
+        <a href="week4.html">Week 4</a>
+        <!-- Add more weeks as needed -->
+    </div>
+
+    <a href="index.html" class="home-button">
+        <img src="https://www.svgrepo.com/show/22031/home-icon-silhouette.svg" alt="Home Icon">
+        Home
+    </a>
+
     <h1>NFL Week <span id="currentWeek"> Games</span></h1>
     <div class="container" id="scheduleContainer">
         <!-- Placeholder for the game boxes -->
@@ -213,9 +274,6 @@
         <div class="modal-content">
             <span class="close" id="closeModal">×</span>
             <iframe id="gameIframe" width="100%" height="500px" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
-            <!--div class="media-control-panel">
-                <button id="fullscreen-btn" class="media-control-button">Fullscreen</button>
-        </div-->
         </div>
     </div>
 
@@ -248,7 +306,6 @@
 
         observer.observe(document.body, { childList: true, subtree: true });
 
-        // Mapping of team abbreviations to full names
         const teamNames = {
             "ARI": "arizona-cardinals",
             "ATL": "atlanta-falcons",
@@ -285,7 +342,7 @@
         };
 
         function getLogoUrl(abbreviation) {
-            return `https://static.www.nfl.com/t_person_squared_mobile/f_auto/league/api/clubs/logos/${abbreviation}.png`; // Adjusted URL construction
+            return `https://static.www.nfl.com/t_person_squared_mobile/f_auto/league/api/clubs/logos/${abbreviation}.png`;
         }
 
         function getIframeUrl(awayTeam, homeTeam) {
@@ -300,17 +357,16 @@
             currentWeekDisplay.textContent = weekNumber;
 
             console.log(`Loading schedule for Week ${weekNumber}`);
-            const currentWeekGames = nflSchedule[weekNumber]; 
-            console.log(`Current Week Games: `, currentWeekGames); 
+            const currentWeekGames = nflSchedule[weekNumber];
+            console.log(`Current Week Games: `, currentWeekGames);
 
-            scheduleContainer.innerHTML = ""; // Clear previous content
+            scheduleContainer.innerHTML = "";
 
             if (currentWeekGames) {
                 currentWeekGames.forEach(game => {
                     const box = document.createElement("div");
                     box.className = "game-box";
 
-                    // Populate the box with team names and logos
                     box.innerHTML = `
                         <div class="day">${game.day ? game.day : 'Day N/A'}</div>
                         <div class="team-names">
@@ -325,7 +381,6 @@
                         <div class="time-channel">${game.tv ? 'Channel: ' + game.tv : 'Channel: TBD'}</div>
                     `;
                     
-                    // Add click event to open modal with correct iframe URL
                     box.onclick = function() {
                         const iframeUrl = getIframeUrl(game.awayTeam, game.homeTeam);
                         document.getElementById("gameIframe").src = iframeUrl;
@@ -336,38 +391,34 @@
                 });
             } else {
                 scheduleContainer.innerHTML = "<p>No games scheduled for this week.</p>";
-                console.log(`No games scheduled for Week ${weekNumber}`); 
+                console.log(`No games scheduled for Week ${weekNumber}`);
             }
         }
 
-        // Close modal functionality
         document.getElementById("closeModal").onclick = function() {
             document.getElementById("myModal").style.display = "none";
-            document.getElementById("gameIframe").src = ""; // Clear the iframe URL
+            document.getElementById("gameIframe").src = "";
         }
 
-        // Load the schedule for Week 4
         loadSchedule(4);
         
-        // Close the modal when clicking outside of it
         window.onclick = function(event) {
             const modal = document.getElementById("myModal");
             if (event.target == modal) {
                 modal.style.display = "none";
-                document.getElementById("gameIframe").src = ""; // Clear the iframe URL
+                document.getElementById("gameIframe").src = "";
             }
         }
 
-        // Fullscreen functionality
         document.getElementById('fullscreen-btn').addEventListener('click', function() {
             const iframe = document.getElementById('gameIframe');
             if (iframe.requestFullscreen) {
                 iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { // Firefox
+            } else if (iframe.mozRequestFullScreen) { 
                 iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+            } else if (iframe.webkitRequestFullscreen) { 
                 iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { // IE/Edge
+            } else if (iframe.msRequestFullscreen) { 
                 iframe.msRequestFullscreen();
             }
         });
