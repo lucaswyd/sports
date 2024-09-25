@@ -7,7 +7,7 @@
     "theme_color": "#007BFF",
     "icons": [
         {
-            "src": "https://example.com/icon.png",
+            "src": "/ssx.png",
             "sizes": "192x192",
             "type": "image/png"
         }
