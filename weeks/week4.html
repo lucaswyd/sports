@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFL Week 4 Games</title>
     <link rel="stylesheet" href="../styles.css"> 
+
+    <!-- Icons for iOS -->
+    <link rel="apple-touch-icon" href="https://example.com/icon.png">
+    <meta name="apple-mobile-web-app-title" content="NFL Schedule">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="../manifest.json"> <!-- Optional manifest.json file -->
+    
     <style>
         @font-face {
             font-family: 'ElectronicArtsDisplayBold';
@@ -27,7 +35,7 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* Align items to the left */
             position: relative; /* Set relative position for absolute elements */
         }
 
@@ -39,18 +47,26 @@
             font-family: 'ElectronicArtsDisplayBold';
         }
 
-        /* Navbar styles */
-        .navbar {
+        /* Header styles */
+        .header {
+            display: flex;
+            align-items: center; /* Center vertically */
             width: 100%;
-            overflow-x: auto;
-            white-space: nowrap;
+            position: relative; /* Create a relative positioning context */
+            justify-content: space-between; /* Distribute space between child elements */
             margin-bottom: 20px;
         }
 
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            align-items: center; /* Center vertically */
+            white-space: nowrap;
+            margin-left: 20px; /* Space from the dividing line */
+            overflow-x: auto; /* Enable horizontal scrolling */
+        }
+
         .navbar a {
-            display: inline-block;
-            top: 20px; /* Space from the top */
-            left: 40px;
             padding: 10px 15px;
             color: #f2f2f2;
             text-decoration: none;
@@ -64,13 +80,18 @@
             background-color: #555;
         }
 
+        .divider {
+            height: 30px; /* Adjust to control the vertical size of the line */
+            width: 2px; /* Width of the line */
+            background-color: #f2f2f2; /* Color of the line */
+            margin: 0 15px; /* Margin to space out the line */
+        }
+
         /* Home button styles */
         .home-button {
-            position: absolute; /* Position it in the top right */
-            top: 20px; /* Space from the top */
-            left: 20px; /* Space from the right */
-            background-color: #0d0d0d; /* Same style as game boxes */
-            border-radius: 8px;
+            position: relative; /* Relative positioning for the button */
+            background-color: #0d0d0d;
+            border-radius: 8px; /* Matching style with game boxes */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             color: #f2f2f2; /* Text color */
             padding: 10px 15px;
@@ -253,30 +274,35 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="week1.html">Week 1</a>
-        <a href="week2.html">Week 2</a>
-        <a href="week3.html">Week 3</a>
-        <a href="week4.html">Week 4</a>
-        <a href="week5.html">Week 5</a>
-        <a href="week6.html">Week 6</a>
-        <a href="week7.html">Week 7</a>
-        <a href="week8.html">Week 8</a>
-        <a href="week9.html">Week 9</a>
-        <a href="week10.html">Week 10</a>
-        <a href="week11.html">Week 11</a>
-        <a href="week12.html">Week 12</a>
-        <a href="week13.html">Week 13</a>
-        <a href="week14.html">Week 14</a>
-        <a href="week15.html">Week 15</a>
-        <a href="week16.html">Week 16</a>
-        <a href="week17.html">Week 17</a>
-        <a href="week18.html">Week 18</a>
-    </div>
+    <div class="header">
+        <a href="../index.html" class="home-button">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/home-page-white-icon.png" alt="Home Icon">
+            Home
+        </a>
 
-    <a href="../index.html" class="home-button">
-        <img src="https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/home-page-white-icon.png" alt="Home Icon">
-    </a>
+        <div class="divider"></div>
+
+        <div class="navbar">
+            <a href="week1.html">Week 1</a>
+            <a href="week2.html">Week 2</a>
+            <a href="week3.html">Week 3</a>
+            <a href="week4.html">Week 4</a>
+            <a href="week5.html">Week 5</a>
+            <a href="week6.html">Week 6</a>
+            <a href="week7.html">Week 7</a>
+            <a href="week8.html">Week 8</a>
+            <a href="week9.html">Week 9</a>
+            <a href="week10.html">Week 10</a>
+            <a href="week11.html">Week 11</a>
+            <a href="week12.html">Week 12</a>
+            <a href="week13.html">Week 13</a>
+            <a href="week14.html">Week 14</a>
+            <a href="week15.html">Week 15</a>
+            <a href="week16.html">Week 16</a>
+            <a href="week17.html">Week 17</a>
+            <a href="week18.html">Week 18</a>
+        </div>
+    </div>
 
     <h1>NFL Week <span id="currentWeek"> Games</span></h1>
     <div class="container" id="scheduleContainer">
