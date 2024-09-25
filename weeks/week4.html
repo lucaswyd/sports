@@ -66,7 +66,7 @@
         .home-button {
             position: absolute; /* Position it in the top right */
             top: 20px; /* Space from the top */
-            right: 20px; /* Space from the right */
+            left: 20px; /* Space from the right */
             background-color: #0d0d0d; /* Same style as game boxes */
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -259,9 +259,8 @@
         <!-- Add more weeks as needed -->
     </div>
 
-    <a href="index.html" class="home-button">
+    <a href="../index.html" class="home-button">
         <img src="https://www.svgrepo.com/show/22031/home-icon-silhouette.svg" alt="Home Icon">
-        Home
     </a>
 
     <h1>NFL Week <span id="currentWeek"> Games</span></h1>
@@ -358,7 +357,7 @@
 
             console.log(`Loading schedule for Week ${weekNumber}`);
             const currentWeekGames = nflSchedule[weekNumber];
-            console.log(`Current Week Games1: `, currentWeekGames);
+            console.log(`Current Week Games: `, currentWeekGames);
 
             scheduleContainer.innerHTML = "";
 
